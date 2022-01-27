@@ -1,0 +1,30 @@
+<script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+<script>
+//google.script.run.withSuccessHandler(initializeVue).getSpreadsheetCnt();
+initializeVue();
+​
+function initializeVue(){
+  var vm = new Vue({
+    el: '#app',
+    data: {
+      cnt: 0,
+      seen: false,
+      test_url: "#",
+      id: 0,
+      url: [
+          { id: 0, url: "https://bit.ly/3H8KZ8z" },
+          { id: 1, url: "https://bit.ly/3AzQ6Mk" },
+          { id: 2, url: "https://bit.ly/3AJdRBN" },
+      ],
+    },
+    methods: {
+      add: function() {
+       vm.cnt =  Math.floor( Math.random() * 3);//urlの数だけ変える
+       vm.id = vm.url[vm.cnt].id;
+       vm.test_url = vm.url[vm.cnt].url;
+       vm.seen = true;
+      }
+    }
+  });
+}
+</script>
