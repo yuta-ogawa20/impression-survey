@@ -22,17 +22,46 @@
   </head>
   <body>
     <div id="app">
-     　<p>調査にご協力いただきありがとうございます。</p>
-       <p>以下の「調査を始める」ボタンを押すと、表示された調査フォームリンクが表示されます。表示された調査フォームリンクを押し、実験を進めてください。</p>
+     　<p>実験にご協力いただきありがとうございます。</p>
+       <p>以下の「実験を始める」ボタンを押すと、表示された実験用リンクが表示されます。表示された実験用リンクを押し、実験を進めてください。</p>
        <div style="display:block;">
-         <a class="btn-square" @click="add">調査を始める</a>
+         <a class="btn-square" @click="add">実験を始める</a>
        </div>
       <div v-if="seen">
-         <p>調査はこちらの<a v-bind:href="test_url">リンク</a>から進んでください。</p>
+         <p>実験はこちらの<a v-bind:href="test_url">リンク</a>から進んでください。</p>
          <p>上記のリンクをクリックできなかった場合は、以下に表示されているリンクをコピーし、ブラウザの検索欄にペーストし、エンターを押してください。</p>
          <p>{{test_url}}</p>
       </div>
     </div>
-    <?!= HtmlService.createHtmlOutputFromFile('js').getContent(); ?> 
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.17/dist/vue.js"></script>
+    <script>
+    //google.script.run.withSuccessHandler(initializeVue).getSpreadsheetCnt();
+    initializeVue();
+    
+    function initializeVue(){
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          cnt: 0,
+          seen: false,
+          test_url: "#",
+          id: 0,
+          url: [
+              { id: 0, url: "https://bit.ly/3H8iQyo" },
+              { id: 1, url: "https://bit.ly/3IILypM" },
+              { id: 2, url: "https://bit.ly/3r7FVf8" },
+          ],
+        },
+        methods: {
+          add: function() {
+           vm.cnt =  Math.floor( Math.random() * 3);//urlの数だけ変える
+           vm.id = vm.url[vm.cnt].id;
+           vm.test_url = vm.url[vm.cnt].url;
+           vm.seen = true;
+          }
+        }
+      });
+    }
+    </script>
   </body>
 </html>
