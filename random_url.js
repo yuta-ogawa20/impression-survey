@@ -1,10 +1,10 @@
 <script type=”text/javascript”>
 <!–
-myCnt = ;//urlの数を入力
+myCnt = 3;//urlの数を入力
 myTable = new Array(
-“url1”,//以下任意のurlを入力
-“url2”,
-“url3″//最後はコンマ無し
+“https://www.soscisurvey.de/test296199/?act=keIf0SOO2A5zDRBNrZXTv5PD”,//以下任意のurlを入力
+“https://www.soscisurvey.de/test296199/?act=avZh1PvNLDzNL1kYsYSHHmwj”,
+“https://www.soscisurvey.de/test296199/?act=KHQlReFGYJplMhhjE9cRZBQL″//最後はコンマ無し
 );
 
 function myRndLink(){
