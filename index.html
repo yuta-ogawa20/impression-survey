@@ -47,14 +47,13 @@
           test_url: "#",
           id: 0,
           url: [
-              { id: 0, url: "https://bit.ly/3H8iQyo" },
-              { id: 1, url: "https://bit.ly/3IILypM" },
-              { id: 2, url: "https://bit.ly/3r7FVf8" },
+              { id: 0, url: "https://bit.ly/3XiKwsi" },
+              { id: 1, url: "https://bit.ly/3Whqb5i" },
           ],
         },
         methods: {
           add: function() {
-           vm.cnt =  Math.floor( Math.random() * 3);//urlの数だけ変える
+           vm.cnt =  Math.floor( Math.random() * 2);//urlの数だけ変える
            vm.id = vm.url[vm.cnt].id;
            vm.test_url = vm.url[vm.cnt].url;
            vm.seen = true;
